@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html >
+<head>  
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<script src="{{url_for('static', filename='script/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='script/app.js')}}"></script>
+<link rel="stylesheet" href="../static/css/app.css">
+<!-- <script src="app.js"></script> -->
+<!-- <link rel="stylesheet" href="app.css"> -->
+  
+</head>
+<body>
+<div class="img"></div>
+ <div class="login">
+	<hr>
+	<h2><marquee bgcolor="#ff4d4d"><strong>-: WELCOME TO THE  MARKETING  SALES  PREDICTION :-</strong></marquee></h2>
+	<hr>
+	<style>
+	h1 {text-align: center;}
+	hi{text-align: center;}
+	div {text-align: center;}
+	
+	</style>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+	<h2><label type="PROD_CD">Product Code:-</label></h2>
+	    <select class="PROD_CD" name="PROD_CD" id="uiPROD_CD" required="required">
+		 	<option value="" disabled="disabled" selected="selected">Choose a Product</option>
+		</select>
+
+    <h2><label type="SLSMAN_CD">Salesman Code:-</label></h2>
+	    <select class="SLSMAN_CD" name="SLSMAN_CD" id="uiSLSMAN_CD" required="required">
+		 	<option value="" disabled="disabled" selected="selected">Choose a Salesman</option>
+		</select>
+	<h2><label for="PLAN_MONTH">Plan Month:-</label></h2>
+        <select name="PLAN_MONTH">
+  			<option value="10">10</option>
+ 			<option value="11">11</option>
+  			<option value="12">12</option>
+			<option value="1">1</option>
+        </select>
+	<h2><label for="TARGET_IN_EA">TARGET_IN_EA:-</label></h2>
+    <input type="text" name="TARGET_IN_EA"><br><br>
+	</select>
+	<br><br><br>
+  	<input type="submit" value="SUBMIT">
+	<input type="reset" value="RESET"><br>
+        <h2><label for="predict" id="predict">Predicted:-</label></h2>
+		<div id="uipredict" class="result"><h2>{{prediction_text}}</h2></div>
+
+    </form>
+		
+   <br>
+   <br>
+   
+
+ </div>
+</body>
+</html>
